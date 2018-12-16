@@ -1,0 +1,17 @@
+version: '3.6'
+
+services:
+  nodejs:
+    image: node:alpine
+    environment:
+      - NODE_ENV=production
+      - ENV_S3_ENDPOINT=
+      - ENV_S3_ACCESS_KEY_ID=
+      - ENV_S3_SECRET_ACCESS_KEY=
+    ports:
+      - 14447:8080
+    user: "node"
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    command: "yarn start"
